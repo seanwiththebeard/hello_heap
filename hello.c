@@ -58,19 +58,19 @@ void testmalloc()
   vram_write(stringA, 8);	// write bytes to video RAM
   free(stringA);
   
-  stringA = malloc(256);
+  stringA = calloc(1, 256);
   for (i = 0; i < 255; ++i)
   {
     stringA[i] = i;
   }
   vram_adr(NTADR_A(2,8));		// set address
   vram_write(stringA, 256);	// write bytes to video RAM
-  free(stringA);
+  //free(stringA);
   
-  stringA = "Hello Heap";
-  vram_adr(NTADR_A(2,18));		// set address
-  vram_write(stringA, strlen(stringA));	// write bytes to video RAM
-  free(stringA);
+  //stringA = "Hello Heap";
+  //vram_adr(NTADR_A(2,18));		// set address
+  //vram_write(stringA, strlen(stringA));	// write bytes to video RAM
+  //free(stringA);
 }
 
 // main function, run after console reset
